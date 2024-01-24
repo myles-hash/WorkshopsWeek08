@@ -1,5 +1,10 @@
 import Link from "next/link";
 
+export const metadata = {
+  title: "Posts - Next.js",
+  description: "Simple blog",
+};
+
 export default async function PostsPage({ searchParams }){
     console.log("searchParams", searchParams);
     const res = await fetch("https://jsonplaceholder.typicode.com/posts");
@@ -18,7 +23,7 @@ export default async function PostsPage({ searchParams }){
           <ul>
             {posts.map((post) => (
               <li key={post.id}>
-                <a href={`/post/${post.id}`}>{post.title}</a>
+                <a href={`/posts/${post.id}`}>{post.title}</a>
               </li>
             ))}
           </ul>
